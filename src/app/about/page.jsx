@@ -37,7 +37,7 @@ const page = () => {
                             animate={{ y: 0 }}
                             className="text-5xl font-bold mb-6"
                         >
-                            Crafting Flavor Excellence Since 1995
+                            1995'ten Beri Lezzet Mükemmelliği
                         </motion.h1>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -45,8 +45,8 @@ const page = () => {
                             transition={{ delay: 0.8 }}
                             className="text-xl"
                         >
-                            Dedicated to sourcing and processing the world's finest spices
-                            with artisanal care and modern precision.
+                            Dünyanın en kaliteli baharatlarını geleneksel ustalık ve modern 
+                            teknoloji ile işlemeye adanmış bir kuruluş.
                         </motion.p>
                     </motion.div>
                 </div>
@@ -80,10 +80,17 @@ const page = () => {
                                         className="w-full md:w-1/2 bg-white p-6 rounded-lg shadow-lg cursor-pointer"
                                     >
                                         <span className="text-[#D64545] font-bold">{year}</span>
-                                        <h3 className="text-xl font-bold mt-2">Company Founded</h3>
+                                        <h3 className="text-xl font-bold mt-2">
+                                            {index === 0 && "Şirket Kuruluşu"}
+                                            {index === 1 && "Global Genişleme"}
+                                            {index === 2 && "Sürdürülebilirlik Girişimi"}
+                                            {index === 3 && "Gelecek Vizyonu"}
+                                        </h3>
                                         <p className="text-gray-600 mt-2">
-                                            Started as a small family-owned spice shop in New York's
-                                            historic district.
+                                            {index === 0 && "New York'un tarihi bölgesinde küçük bir aile baharat dükkanı olarak başladık."}
+                                            {index === 1 && "Uluslararası pazarlara açılarak global bir marka haline geldik."}
+                                            {index === 2 && "Sürdürülebilir tarım uygulamalarını ve çevre dostu üretim süreçlerini benimsedik."}
+                                            {index === 3 && "İnovasyon ve sürdürülebilirlik odaklı geleceğe yönelik planlarımızı hayata geçiriyoruz."}
                                         </p>
                                     </motion.div>
                                 </div>
@@ -108,7 +115,7 @@ const page = () => {
                     className="mt-32"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {['Mission', 'Vision', 'Values'].map((item, index) => (
+                        {['Misyon', 'Vizyon', 'Değerler'].map((item, index) => (
                             <motion.div
                                 key={item}
                                 initial={{ opacity: 0, y: 30 }}
@@ -120,11 +127,11 @@ const page = () => {
                                 <div className="text-[#D64545] text-3xl mb-4">
                                     <i className="fas fa-bullseye"></i>
                                 </div>
-                                <h3 className="text-2xl font-bold mb-4">Mission</h3>
+                                <h3 className="text-2xl font-bold mb-4">{item}</h3>
                                 <p className="text-gray-600">
-                                    To bring the world's finest spices to every kitchen while
-                                    supporting sustainable farming practices and traditional
-                                    artisans.
+                                    {index === 0 && "Dünyanın en kaliteli baharatlarını her mutfağa ulaştırırken sürdürülebilir tarım uygulamalarını ve geleneksel üreticileri desteklemek."}
+                                    {index === 1 && "Baharat sektöründe global bir lider olarak, yenilikçi ürünler ve sürdürülebilir uygulamalarla dünya mutfaklarına ilham vermek."}
+                                    {index === 2 && "Kalite, şeffaflık, sürdürülebilirlik ve müşteri memnuniyeti ilkelerine bağlı kalarak sektörde örnek bir kuruluş olmak."}
                                 </p>
                             </motion.div>
                         ))}
@@ -142,31 +149,31 @@ const page = () => {
                         animate={{ y: 0 }}
                         className="text-4xl font-bold text-center mb-16"
                     >
-                        Our Leadership Team
+                        Yönetim Ekibimiz
                     </motion.h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                         {[
                             {
-                                name: "Alexandra Chen",
-                                position: "Chief Executive Officer",
+                                name: "Ayşe Yılmaz",
+                                position: "Genel Müdür",
                                 image:
                                     "https://public.readdy.ai/ai/img_res/a5955ea0a222b3a8b58d21ea7391f9ca.jpg",
                             },
                             {
-                                name: "Marcus Rodriguez",
-                                position: "Head of Operations",
+                                name: "Mehmet Kaya",
+                                position: "Operasyon Müdürü",
                                 image:
                                     "https://public.readdy.ai/ai/img_res/923037141a63ad90ea774fa51524f0d7.jpg",
                             },
                             {
-                                name: "Sarah Thompson",
-                                position: "Chief Innovation Officer",
+                                name: "Zeynep Demir",
+                                position: "İnovasyon Direktörü",
                                 image:
                                     "https://public.readdy.ai/ai/img_res/c5cee5cdaa64b147709300d6b46f0d41.jpg",
                             },
                             {
-                                name: "David Patel",
-                                position: "Global Sourcing Director",
+                                name: "Ahmet Şahin",
+                                position: "Global Tedarik Direktörü",
                                 image:
                                     "https://public.readdy.ai/ai/img_res/b32d26e0fb9240fea47e0e5ede51f752.jpg",
                             },

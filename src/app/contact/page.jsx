@@ -31,10 +31,10 @@ const page = () => {
                     className="text-center mb-16"
                 >
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">
-                        Get in Touch
+                        İletişim
                     </h2>
                     <p className="text-xl text-gray-600">
-                        We'd love to hear from you. Let us know how we can help.
+                        Size nasıl yardımcı olabileceğimizi bize bildirin, en kısa sürede dönüş yapalım.
                     </p>
                 </motion.div>
 
@@ -47,7 +47,7 @@ const page = () => {
                     >
                         <img
                             src="https://public.readdy.ai/ai/img_res/ddfce39d1bb063fcb0b853cfaa37e8f8.jpg"
-                            alt="Contact Us"
+                            alt="İletişim"
                             className="w-full h-[500px] object-cover"
                         />
                     </motion.div>
@@ -68,28 +68,28 @@ const page = () => {
                                 variants={fadeInUp}
                                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
                             >
-                                <div>
+                            <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        First Name
-                                    </label>
+                                        Ad
+                                </label>
                                     <motion.input
                                         whileFocus={{ scale: 1.02 }}
                                         type="text"
                                         className="w-full px-4 py-3 rounded-lg border-gray-200 focus:border-[#D64545] focus:ring-[#D64545] bg-gray-50"
-                                        placeholder="Enter your first name"
-                                    />
-                                </div>
-                                <div>
+                                        placeholder="Adınızı giriniz"
+                                />
+                            </div>
+                            <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        Last Name
-                                    </label>
+                                        Soyad
+                                </label>
                                     <motion.input
                                         whileFocus={{ scale: 1.02 }}
-                                        type="text"
+                                    type="text"
                                         className="w-full px-4 py-3 rounded-lg border-gray-200 focus:border-[#D64545] focus:ring-[#D64545] bg-gray-50"
-                                        placeholder="Enter your last name"
-                                    />
-                                </div>
+                                        placeholder="Soyadınızı giriniz"
+                                />
+                            </div>
                             </motion.div>
 
                             {['email', 'subject', 'message'].map((field, i) => (
@@ -98,32 +98,38 @@ const page = () => {
                                     variants={fadeInUp}
                                 >
                                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                                        {field.charAt(0).toUpperCase() + field.slice(1)}
-                                    </label>
+                                        {{
+                                            email: 'E-posta',
+                                            subject: 'Konu',
+                                            message: 'Mesaj'
+                                        }[field]}
+                                </label>
                                     {field === 'subject' ? (
                                         <motion.select
                                             whileFocus={{ scale: 1.02 }}
                                             className="w-full px-4 py-3 rounded-lg border-gray-200 focus:border-[#D64545] focus:ring-[#D64545] bg-gray-50"
                                         >
-                                            <option value="">Select a subject</option>
-                                            <option value="general">General Inquiry</option>
-                                            <option value="support">Product Support</option>
-                                            <option value="wholesale">Wholesale Questions</option>
-                                            <option value="other">Other</option>
+                                            <option value="">Bir konu seçin</option>
+                                            <option value="general">Genel Soru</option>
+                                            <option value="support">Ürün Desteği</option>
+                                            <option value="wholesale">Toptan Satış</option>
+                                            <option value="other">Diğer</option>
                                         </motion.select>
                                     ) : field === 'message' ? (
                                         <motion.textarea
                                             whileFocus={{ scale: 1.02 }}
                                             rows={4}
                                             className="w-full px-4 py-3 rounded-lg border-gray-200 focus:border-[#D64545] focus:ring-[#D64545] bg-gray-50"
-                                            placeholder={`Enter your ${field}`}
+                                            placeholder="Mesajınızı buraya yazın"
                                         />
                                     ) : (
                                         <motion.input
                                             whileFocus={{ scale: 1.02 }}
                                             type={field}
                                             className="w-full px-4 py-3 rounded-lg border-gray-200 focus:border-[#D64545] focus:ring-[#D64545] bg-gray-50"
-                                            placeholder={`Enter your ${field}`}
+                                            placeholder={`${{
+                                                email: 'E-posta adresiniz'
+                                            }[field]}`}
                                         />
                                     )}
                                 </motion.div>
@@ -135,7 +141,7 @@ const page = () => {
                                 whileTap={{ scale: 0.95 }}
                                 className="!rounded-button w-full bg-[#D64545] text-white py-3 px-6 hover:bg-[#B83A3A] transition-colors cursor-pointer whitespace-nowrap"
                             >
-                                Send Message
+                                Mesaj Gönder
                             </motion.button>
                         </motion.form>
 
@@ -146,9 +152,9 @@ const page = () => {
                             className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6"
                         >
                             {[
-                                { icon: 'map-marker-alt', title: 'Visit Us', content: '123 Spice Street, NY 10001' },
-                                { icon: 'phone', title: 'Call Us', content: '+1 (555) 123-4567' },
-                                { icon: 'envelope', title: 'Email Us', content: 'info@spiceartisan.com' }
+                                { icon: 'map-marker-alt', title: 'Adres', content: 'Baharat Sokak No:123, İstanbul' },
+                                { icon: 'phone', title: 'Telefon', content: '+90 (555) 123 45 67' },
+                                { icon: 'envelope', title: 'E-posta', content: 'iletisim@bahat.com' }
                             ].map((item, i) => (
                                 <motion.div
                                     key={item.title}
@@ -159,7 +165,7 @@ const page = () => {
                                 >
                                     <div className="w-12 h-12 bg-[#D64545] bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
                                         <i className={`fas fa-${item.icon} text-[#D64545] text-xl`} />
-                                    </div>
+                            </div>
                                     <h3 className="font-medium text-gray-900">{item.title}</h3>
                                     <p className="text-gray-600 text-sm mt-1">{item.content}</p>
                                 </motion.div>

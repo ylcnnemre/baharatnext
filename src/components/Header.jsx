@@ -28,6 +28,26 @@ const Header = () => {
         return pathname.startsWith(href);
     };
 
+    const linkItems= [
+        {
+            name : "Anasayfa",
+            href : "/"
+        },
+        {
+            name : "Ürünler",
+            href : "/products"
+        },
+        {
+            name : "Hakkımızda",
+            href : "/about"
+        },
+        {
+            name : "İletişim",
+            href : "/contact"
+        }
+    ]
+
+
     return (
         <>
             <motion.nav
@@ -47,21 +67,21 @@ const Header = () => {
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center space-x-8">
-                            {['Home', 'Products', 'About', 'Contact'].map((item) => {
-                                const href = item === 'Home' ? '/' : `/${item.toLowerCase()}`;
+                            {linkItems.map((item) => {
+                                const href = item.href === '/' ? '/' : `/${item.href.toLowerCase()}`;
                                 return (
-                                    <motion.div key={item} variants={navItemVariants}>
+                                    <motion.div key={item.name} variants={navItemVariants}>
                                         <Link
-                                            href={href}
+                                            href={item.href}
                                             className={`relative px-3 py-2 transition-colors group ${
-                                                isActive(href) 
+                                                isActive(item.href) 
                                                 ? 'text-amber-600 font-medium' 
                                                 : 'text-gray-600 hover:text-amber-600'
                                             }`}
                                         >
-                                            {item}
+                                            {item.name}
                                             <span className={`absolute bottom-0 left-0 h-0.5 bg-amber-500 transition-all duration-300 ${
-                                                isActive(href) ? 'w-full' : 'w-0 group-hover:w-full'
+                                                isActive(item.href) ? 'w-full' : 'w-0 group-hover:w-full'
                                             }`}></span>
                                         </Link>
                                     </motion.div>
