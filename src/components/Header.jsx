@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { HiMenu, HiX, HiChevronRight } from 'react-icons/hi';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,7 +48,6 @@ const Header = () => {
         }
     ]
 
-
     return (
         <>
             <motion.nav
@@ -87,25 +87,20 @@ const Header = () => {
                                     </motion.div>
                                 );
                             })}
-                            {/* <motion.div variants={navItemVariants}>
-                                <Link
-                                    href="/shop"
-                                    className="ml-4 bg-gradient-to-r from-amber-500 to-amber-400 text-white px-6 py-2.5 rounded-full 
-                                    shadow-lg hover:shadow-amber-200/40 transition-all hover:scale-[1.02] flex items-center space-x-2"
-                                >
-                                    <i className="fas fa-shopping-bag"></i>
-                                    <span>Shop Now</span>
-                                </Link>
-                            </motion.div> */}
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <button
+                        <motion.button
+                            whileTap={{ scale: 0.95 }}
                             className="md:hidden text-gray-600 hover:text-amber-600 transition-colors p-2"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
-                            <i className={`fas ${isMenuOpen ? 'fa-times' : 'fa-bars'} text-2xl`}></i>
-                        </button>
+                            {isMenuOpen ? (
+                                <HiX className="w-6 h-6" />
+                            ) : (
+                                <HiMenu className="w-6 h-6" />
+                            )}
+                        </motion.button>
                     </div>
                 </div>
             </motion.nav>
@@ -120,26 +115,23 @@ const Header = () => {
                         className="md:hidden fixed top-20 left-0 w-full bg-white/95 backdrop-blur-lg shadow-xl z-40"
                     >
                         <div className="flex flex-col p-4 space-y-4 border-t border-gray-100">
-                            {['Home', 'Products', 'About', 'Contact'].map((item) => {
-                                const href = item === 'Home' ? '/' : `/${item.toLowerCase()}`;
-                                return (
-                                    <Link
-                                        key={item}
-                                        href={href}
-                                        className={`px-4 py-3 rounded-lg transition-colors flex items-center space-x-3 group ${
-                                            isActive(href)
-                                            ? 'bg-amber-50 text-amber-600'
-                                            : 'text-gray-600 hover:bg-amber-50'
-                                        }`}
-                                    >
-                                        <i className={`fas fa-chevron-right text-amber-400 ${
-                                            isActive(href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-                                        } transition-opacity`}></i>
-                                        <span>{item}</span>
-                                    </Link>
-                                );
-                            })}
-                           
+                            {linkItems.map((item) => (
+                                <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    className={`px-4 py-3 rounded-lg transition-colors flex items-center space-x-3 group ${
+                                        isActive(item.href)
+                                        ? 'bg-amber-50 text-amber-600'
+                                        : 'text-gray-600 hover:bg-amber-50 hover:text-amber-600'
+                                    }`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    <HiChevronRight className={`text-amber-400 ${
+                                        isActive(item.href) ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                                    } transition-opacity`} />
+                                    <span>{item.name}</span>
+                                </Link>
+                            ))}
                         </div>
                     </motion.div>
                 )}

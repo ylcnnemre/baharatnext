@@ -8,7 +8,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('tümü');
   const [isHovered, setIsHovered] = useState(null);
-  
+
   const urunler = [
     {
       id: 1,
@@ -119,9 +119,8 @@ const App = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveTab(tab)}
-              className={`!rounded-button px-6 py-2 transition-colors cursor-pointer whitespace-nowrap ${
-                activeTab === tab ? 'bg-[#D64545] text-white' : 'bg-gray-100 text-gray-700'
-              }`}
+              className={`!rounded-button px-6 py-2 transition-colors cursor-pointer whitespace-nowrap ${activeTab === tab ? 'bg-[#D64545] text-white' : 'bg-gray-100 text-gray-700'
+                }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1)}
             </motion.button>
@@ -138,8 +137,8 @@ const App = () => {
                     layout
                     key={urun.id}
                     initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ 
-                      opacity: 1, 
+                    whileInView={{
+                      opacity: 1,
                       y: 0,
                       transition: {
                         type: "spring",
@@ -149,7 +148,7 @@ const App = () => {
                       }
                     }}
                     viewport={{ once: true, margin: "-100px" }}
-                    whileHover={{ 
+                    whileHover={{
                       y: -5,
                       transition: { type: "spring", stiffness: 400, duration: 0.2 }
                     }}
@@ -193,6 +192,72 @@ const App = () => {
         </LayoutGroup>
       </section>
 
+      <section className="py-20 bg-[#D64545]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">15+</div>
+              <div className="text-lg">Years Experience</div>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">50+</div>
+              <div className="text-lg">Global Partners</div>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">100K+</div>
+              <div className="text-lg">Happy Customers</div>
+            </div>
+            <div className="text-center text-white">
+              <div className="text-4xl font-bold mb-2">200+</div>
+              <div className="text-lg">Premium Products</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Featured In
+            </h2>
+            <p className="text-xl text-gray-600">
+              Trusted by leading culinary experts and publications
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+            <div className="text-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img
+                src="https://public.readdy.ai/ai/img_res/7eea2be8f3a31a13cb378684dced693d.jpg"
+                alt="Food Magazine"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="text-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img
+                src="https://public.readdy.ai/ai/img_res/14074b68c6a898685fbb7b0d15d935b8.jpg"
+                alt="Culinary Award"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="text-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img
+                src="https://public.readdy.ai/ai/img_res/df783c88a2b4120c64fbc2c919ac1556.jpg"
+                alt="Cooking Show"
+                className="w-full h-auto"
+              />
+            </div>
+            <div className="text-center grayscale hover:grayscale-0 transition-all duration-300">
+              <img
+                src="https://public.readdy.ai/ai/img_res/cef4a12e3f4fb434534f8c27dbeac844.jpg"
+                alt="Food Critics"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
       {/* Kalite Taahhüdü Bölümü */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4">
@@ -226,9 +291,9 @@ const App = () => {
                     {index === 0 ? 'El ile Seçim' : index === 1 ? 'Geleneksel İşleme' : 'Kalite Testi'}
                   </h3>
                   <p className="text-gray-600">
-                    {index === 0 ? 'Her baharat premium kaliteyi garanti etmek için özenle el ile seçilir' 
-                     : index === 1 ? 'Otantik lezzetleri korumak için geleneksel yöntemler kullanıyoruz' 
-                     : 'En yüksek kalite standartları için titiz testler'}
+                    {index === 0 ? 'Her baharat premium kaliteyi garanti etmek için özenle el ile seçilir'
+                      : index === 1 ? 'Otantik lezzetleri korumak için geleneksel yöntemler kullanıyoruz'
+                        : 'En yüksek kalite standartları için titiz testler'}
                   </p>
                 </div>
               </motion.div>
@@ -236,6 +301,102 @@ const App = () => {
           </div>
         </div>
       </section>
+
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              What Our Customers Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Real feedback from passionate home cooks and professional chefs
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://public.readdy.ai/ai/img_res/00e9a6578a525a3eeca7f067bc30c902.jpg"
+                  alt="Chef Sarah"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div className="ml-4">
+                  <h4 className="font-semibold">Chef Sarah Williams</h4>
+                  <p className="text-gray-600 text-sm">
+                    Executive Chef, The Golden Plate
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                "The quality of Spice Artisan's saffron is unmatched. It's
+                transformed our signature dishes and our customers can taste
+                the difference."
+              </p>
+              <div className="flex items-center mt-4 text-yellow-400">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://public.readdy.ai/ai/img_res/a84d0c9d96dfb113c1c91ebdd7d3a69c.jpg"
+                  alt="James Chen"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div className="ml-4">
+                  <h4 className="font-semibold">James Chen</h4>
+                  <p className="text-gray-600 text-sm">
+                    Food Blogger & Critic
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                "As someone who tests countless ingredients, I can confidently
+                say that Spice Artisan's collection is in a league of its
+                own."
+              </p>
+              <div className="flex items-center mt-4 text-yellow-400">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-xl">
+              <div className="flex items-center mb-4">
+                <img
+                  src="https://public.readdy.ai/ai/img_res/361e36d9cce114770cd36ad118affae8.jpg"
+                  alt="Maria Garcia"
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div className="ml-4">
+                  <h4 className="font-semibold">Maria Garcia</h4>
+                  <p className="text-gray-600 text-sm">
+                    Home Chef & Food Enthusiast
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-600">
+                "The depth of flavor in their spices has elevated my home
+                cooking to restaurant quality. My family can't get enough!"
+              </p>
+              <div className="flex items-center mt-4 text-yellow-400">
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+                <i className="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* Küresel Tedarik Bölümü */}
       <section className="py-20 bg-[#FDF8F6]">
